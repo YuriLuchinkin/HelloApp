@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MobileStore.Models.Order>
+@{
+    ViewData["Title"] = "Каталог заказов";
+}
+<h3>Заказы</h3>
+<table class="table-condensed">
+    <tr>
+        <td>ID заказа</td>
+        <td>Покупатель</td>
+        <td>Адрес</td>
+        <td>Контактный телефон</td>
+        <td>Товар</td>
+        <td>Цена</td>
+        <td></td>
+    </tr>
+    @foreach (var order in Model)
+    {
+<tr>
+    <td>@order.OrderId</td>
+    <td>@order.User</td>
+    <td>@order.Address</td>
+    <td>@order.ContactPhone</td>
+    <td>@order.Phone.Name</td>
+    <td>@order.Phone.Price</td>
+</tr>
+    }
+</table>
