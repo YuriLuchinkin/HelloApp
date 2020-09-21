@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using HtmlHelpersApp.Models;
+using ValidationApp.Models;
 
-namespace HtmlHelpersApp.Controllers
+namespace ValidationApp.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,7 +20,16 @@ namespace HtmlHelpersApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Person p = new Person
+            {
+                Name = "Элронд Смит",
+                Age = 58,
+                HomePage = "www.microsoft.com",
+                Email = "elrond.smith@gmail.com",
+                Password = "qwerty",
+                DateOfBirth = new DateTime(1980, 3, 2)
+            };
+            return View(p);
         }
 
         public IActionResult Privacy()
@@ -33,27 +42,27 @@ namespace HtmlHelpersApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        [HttpGet]
+        
         public IActionResult Create()
         {
             return View();
         }
-        //[HttpPost]
-        //public IActionResult Create(string name, int age)
-        //{
-        //    return Content($"{name} - {age}");
-        //}
         [HttpPost]
-        public IActionResult Create(User user)
+        public IActionResult Create(Person person)
         {
-            return Content($"{user.Name} - {user.Age}");
+            if (ModelState.IsValid)
+                return Content($"{person.Name} - {person.Email}");
+
+            return View(person);
+        }
+        [AcceptVerbs("Get", "Post")]
+        public IActionResult CheckEmail(string email)
+        {
+            if (email == "admin@mail.ru" || email == "aaa@gmail.com")
+                return Json(false);
+            return Json(true);
         }
 
-        public IActionResult Details()
-        {
-            User tom = new User { Id = 1, Name = "Tom", Age = 35 };
-            return View(tom);
-        }
+      
     }
 }

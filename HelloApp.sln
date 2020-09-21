@@ -27,9 +27,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreasApp", "AreasApp\AreasA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelsApp", "ModelsApp\ModelsApp.csproj", "{566D9A01-A896-418D-996D-7F3F04FC0A07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomModelBinderApp", "CustomModelBinderApp\CustomModelBinderApp.csproj", "{674AEEFA-6116-4ECF-B401-316D868E7CF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomModelBinderApp", "CustomModelBinderApp\CustomModelBinderApp.csproj", "{674AEEFA-6116-4ECF-B401-316D868E7CF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlHelpersApp", "HtmlHelpersApp\HtmlHelpersApp.csproj", "{BCA96A64-4DBC-468D-B0EC-6D31E2CF3C3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlHelpersApp", "HtmlHelpersApp\HtmlHelpersApp.csproj", "{BCA96A64-4DBC-468D-B0EC-6D31E2CF3C3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagHelpersApp", "TagHelpersApp\TagHelpersApp.csproj", "{17EDC46E-4A69-48AD-9EDC-37A1F8602C18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewComponentsApp", "ViewComponentsApp\ViewComponentsApp.csproj", "{316CAB1A-A1E8-4C24-B746-46E36B77437D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationApp", "ValidationApp\ValidationApp.csproj", "{3C1371F7-FD24-4933-88B1-4449A8731C70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +99,18 @@ Global
 		{BCA96A64-4DBC-468D-B0EC-6D31E2CF3C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCA96A64-4DBC-468D-B0EC-6D31E2CF3C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCA96A64-4DBC-468D-B0EC-6D31E2CF3C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17EDC46E-4A69-48AD-9EDC-37A1F8602C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17EDC46E-4A69-48AD-9EDC-37A1F8602C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17EDC46E-4A69-48AD-9EDC-37A1F8602C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17EDC46E-4A69-48AD-9EDC-37A1F8602C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{316CAB1A-A1E8-4C24-B746-46E36B77437D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316CAB1A-A1E8-4C24-B746-46E36B77437D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316CAB1A-A1E8-4C24-B746-46E36B77437D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316CAB1A-A1E8-4C24-B746-46E36B77437D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1371F7-FD24-4933-88B1-4449A8731C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1371F7-FD24-4933-88B1-4449A8731C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1371F7-FD24-4933-88B1-4449A8731C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1371F7-FD24-4933-88B1-4449A8731C70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

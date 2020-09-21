@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using HtmlHelpersApp.Models;
+using ViewComponentsApp.Models;
 
-namespace HtmlHelpersApp.Controllers
+namespace ViewComponentsApp.Controllers
 {
     public class HomeController : Controller
     {
@@ -32,28 +32,6 @@ namespace HtmlHelpersApp.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-        //[HttpPost]
-        //public IActionResult Create(string name, int age)
-        //{
-        //    return Content($"{name} - {age}");
-        //}
-        [HttpPost]
-        public IActionResult Create(User user)
-        {
-            return Content($"{user.Name} - {user.Age}");
-        }
-
-        public IActionResult Details()
-        {
-            User tom = new User { Id = 1, Name = "Tom", Age = 35 };
-            return View(tom);
         }
     }
 }

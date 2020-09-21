@@ -1,0 +1,32 @@
+﻿@model HtmlHelpersApp.Models.User
+
+@*@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(m => m.Name, "Имя")<br />
+        @Html.TextBoxFor(m => m.Name)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Age, "Возраст")<br />
+        @Html.TextBoxFor(m => m.Age, "", new { type = "number" })
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+}*@
+
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(m => m.Name, "Имя")<br />
+        @Html.EditorFor(m => m.Name)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Age, "Возраст")<br />
+        @Html.EditorFor(m => m.Age)
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+}
