@@ -1,0 +1,58 @@
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SortApp.Models;
+using System.Linq;
+
+namespace SortApp.Controllers
+{
+    public class HomeController : Controller
+    {
+        UsersContext db;
+        public HomeController(UsersContext context)
+        {
+            this.db = context;
+            // добавим начальные данные для тестирования
+            if (db.Companies.Count() == 0)
+            {
+                Company oracle = new Company { Name = "Oracle" };
+                Company google = new Company { Name = "Google" };
+                Company microsoft = new Company { Name = "Microsoft" };
+                Company apple = new Company { Name = "Apple" };
+
+                User user1 = new User { Name = "Олег Васильев", Company = oracle, Age = 26 };
+                User user2 = new User { Name = "Александр Овсов", Company = oracle, Age = 24 };
+                User user3 = new User { Name = "Алексей Петров", Company = microsoft, Age = 25 };
+                User user4 = new User { Name = "Иван Иванов", Company = microsoft, Age = 26 };
+                User user5 = new User { Name = "Петр Андреев", Company = microsoft, Age = 23 };
+                User user6 = new User { Name = "Василий Иванов", Company = google, Age = 23 };
+                User user7 = new User { Name = "Олег Кузнецов", Company = google, Age = 25 };
+                User user8 = new User { Name = "Андрей Петров", Company = apple, Age = 24 };
+
+                db.Companies.AddRange(oracle, microsoft, google, apple);
+                db.Users.AddRange(user1, user2, user3, user4, user5, user6, user7, user8);
+                db.SaveChanges();
+            }
+        }
+        public async Task<IActionResult> Index(SortState sortOrder = SortState.NameAsc)
+        {
+            IQueryable<User> users = db.Users.Include(x => x.Company);
+
+            users = sortOrder switch
+            {
+                SortState.NameDesc => users.OrderByDescending(s => s.Name),
+                SortState.AgeAsc => users.OrderBy(s => s.Age),
+                SortState.AgeDesc => users.OrderByDescending(s => s.Age),
+                SortState.CompanyAsc => users.OrderBy(s => s.Company.Name),
+                SortState.CompanyDesc => users.OrderByDescending(s => s.Company.Name),
+                _ => users.OrderBy(s => s.Name),
+            };
+            IndexViewModel viewModel = new IndexViewModel
+            {
+                Users = await users.AsNoTracking().ToListAsync(),
+                SortViewModel = new SortViewModel(sortOrder)
+            };
+            return View(viewModel);
+        }
+    }
+}

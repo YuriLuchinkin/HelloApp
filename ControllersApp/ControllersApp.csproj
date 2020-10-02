@@ -10,6 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EFDataApp\EFDataApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="wwwroot\Files\hello.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
